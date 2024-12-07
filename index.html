@@ -1,88 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Payment Gateway</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Gateway</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <div class="container">
-    <!-- Left Section -->
-    <div class="left-section">
-      <img src="img/google.png" alt="Google Logo" class="logo">
-      <h2>Payment gateway</h2>
-      <p>Enter school location details!</p>
+    <div class="container">
+        <!-- Left Section -->
+        <div class="left-section">
+            <img src="img/google.png" alt="Google Logo" class="logo">
+            <h2>Payment gateway</h2>
+            <p>Enter school location details!</p>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <h1>Complete registration payment</h1>
+
+            <form>
+                <!-- Personal Details -->
+                <div class="form-group">
+                    <h2>Personal details</h2>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Address line</label>
+                            <input type="text" placeholder="P.O. Box 1223" required>
+                        </div>
+                        <div class="input-group">
+                            <label>City</label>
+                            <input type="text" placeholder="Arusha" required>
+                        </div>
+                    </div>
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>State</label>
+                            <input type="text" placeholder="Arusha, Tanzania" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Postal code</label>
+                            <input type="text" placeholder="9090" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="form-group">
+                    <h2>Payment methods</h2>
+                    <div class="payment-icons">
+                        <img src="img/visa.png" alt="VISA" class="selectable">
+                        <img src="img/stripe.png" alt="Stripe" class="selectable">
+                        <img src="img/paypal.png" alt="PayPal" class="selectable">
+                        <img src="img/credit.png" alt="MasterCard" class="selectable">
+                        <img src="img/gpay.png" alt="Google Pay" class="selectable">
+                    </div>
+
+
+                    <!-- Card Details -->
+                    <div class="form-group">
+                        <h2>Card details</h2>
+                        <div class="input-group">
+                            <label>Cardholder’s name</label>
+                            <input type="text" placeholder="Seen on your card" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Card number</label>
+                            <input type="text" placeholder="Seen on your card" required>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>Expiry</label>
+                                <input type="text" placeholder="20/23" required>
+                            </div>
+                            <div class="input-group">
+                                <label>CVC</label>
+                                <input type="text" placeholder="654" required>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://www.giaswizya.my.id" target="_blank">
+                        <button type="submit" class="btn-next">Next</button>
+                    </a>
+            </form>
+        </div>
     </div>
-
-    <!-- Right Section -->
-    <div class="right-section">
-      <h1>Complete registration payment</h1>
-
-      <form>
-        <!-- Personal Details -->
-        <div class="form-group">
-          <h2>Personal details</h2>
-          <div class="input-row">
-            <div class="input-group">
-              <label>Address line</label>
-              <input type="text" placeholder="P.O. Box 1223" required>
-            </div>
-            <div class="input-group">
-              <label>City</label>
-              <input type="text" placeholder="Arusha" required>
-            </div>
-          </div>
-          <div class="input-row">
-            <div class="input-group">
-              <label>State</label>
-              <input type="text" placeholder="Arusha, Tanzania" required>
-            </div>
-            <div class="input-group">
-              <label>Postal code</label>
-              <input type="text" placeholder="9090" required>
-            </div>
-          </div>
-        </div>
-
-        <!-- Payment Methods -->
-        <div class="form-group">
-          <h2>Payment methods</h2>
-          <div class="payment-icons">
-            <img src="img/visa.png" alt="VISA">
-            <img src="img/stripe.png" alt="Stripe">
-            <img src="img/paypal.png" alt="PayPal">
-            <img src="img/credit.png" alt="MasterCard">
-            <img src="img/gpay.png" alt="Google Pay">
-          </div>
-        </div>
-
-        <!-- Card Details -->
-        <div class="form-group">
-          <h2>Card details</h2>
-          <div class="input-group">
-            <label>Cardholder’s name</label>
-            <input type="text" placeholder="Seen on your card" required>
-          </div>
-          <div class="input-group">
-            <label>Card number</label>
-            <input type="text" placeholder="Seen on your card" required>
-          </div>
-          <div class="input-row">
-            <div class="input-group">
-              <label>Expiry</label>
-              <input type="text" placeholder="20/23" required>
-            </div>
-            <div class="input-group">
-              <label>CVC</label>
-              <input type="text" placeholder="654" required>
-            </div>
-          </div>
-        </div>
-
-        <button type="submit" class="btn-next">Next</button>
-      </form>
-    </div>
-  </div>
 </body>
+<script>
+    // Ambil semua ikon yang dapat dipilih
+    const icons = document.querySelectorAll('.payment-icons .selectable');
+
+    // Tambahkan event listener untuk setiap ikon
+    icons.forEach(icon => {
+        icon.addEventListener('click', () => {
+            // Hapus kelas 'selected' dari semua ikon
+            icons.forEach(i => i.classList.remove('selected'));
+
+            // Tambahkan kelas 'selected' ke ikon yang diklik
+            icon.classList.add('selected');
+        });
+    });
+</script>
+
 </html>
